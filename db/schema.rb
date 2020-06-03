@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_024635) do
+ActiveRecord::Schema.define(version: 2020_06_03_210619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
+    t.integer "subscribers"
+    t.integer "debut"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "billboard_id", null: false
+    t.index ["billboard_id"], name: "index_artists_on_billboard_id"
+  end
+
+  create_table "billboards", force: :cascade do |t|
+    t.string "artist"
+    t.string "most_played_song"
+    t.string "albums_sold"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "songs", force: :cascade do |t|
     t.string "title"
@@ -22,23 +41,10 @@ ActiveRecord::Schema.define(version: 2020_05_29_024635) do
     t.integer "plays"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "artist_id", null: false
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
-  create_table "top_artists", force: :cascade do |t|
-    t.string "name"
-    t.string "genre"
-    t.integer "subscribers"
-    t.integer "debut"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "top_billboard_100s", force: :cascade do |t|
-    t.string "artist"
-    t.string "most_played_song"
-    t.string "albums_sold"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
+  add_foreign_key "artists", "billboards"
+  add_foreign_key "songs", "artists"
 end

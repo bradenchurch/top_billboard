@@ -1,11 +1,12 @@
-
 <h1>Billboard Top 100</h1>
-<%# erb embedded ruby inside html %>
+
+
 <ul>
   <% @billboards.each do |billboard| %>
     <li>
-      <%= link_to billboard.name, billboard %>
+      <%= link_to billboard.artist, billboard %>
     </li>
   <% end %>
 </ul>
 <%= link_to 'New Billboard', new_billboard_path %>
+

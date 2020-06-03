@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TopBillboard100Test < ActiveSupport::TestCase
+class BillboardTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
