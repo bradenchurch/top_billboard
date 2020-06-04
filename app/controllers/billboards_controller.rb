@@ -18,7 +18,7 @@ class BillboardsController < ApplicationController
   def create
     @billboard = Billboard.new(billboard_params)
     if @billboard.save
-      redirect_to billboards_path #############
+      redirect_to @billboard
     else
       render :new
     end

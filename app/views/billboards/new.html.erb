@@ -1,2 +1,20 @@
-<h1>Billboards#new</h1>
-<p>Find me in app/views/billboards/new.html.erb</p>
+<h1>New Billboard Entry</h1>
+
+<%= form_with(model: @billboard, local: true, class: "ui form" ) do |f| %>
+  <div class="field">
+    <%= f.label :artist %>
+    <%= f.text_field :artist, required: true, autofocus: true %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :song %>
+    <%= f.text_field :most_played_song, required: true %>
+  </div>
+  <br />
+  <div class="field">
+  <%= f.label :albums_Sold %>
+  <%= f.text_field :albums_sold, required: true %>
+</div>
+<br/>
+  <%= f.submit nil, class: 'ui green button' %>
+<% end %>

@@ -1,2 +1,25 @@
-<h1>Artists#new</h1>
-<p>Find me in app/views/artists/new.html.erb</p>
+<h1>Artist Entry</h1>
+
+<%= form_with(model: @artist, local: true, class: "ui form" ) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, autofocus: true %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :genre %>
+    <%= f.text_field :genre, required: true %>
+  </div>
+  <br />
+  <div class="field">
+  <%= f.label :subscribers %>
+  <%= f.text_field :subscribers, required: true %>
+</div>
+<br/>
+<div class="field">
+  <%= f.label :debut %>
+  <%= f.text_field :debut, required: true %>
+</div>
+<br/>
+  <%= f.submit nil, class: 'ui green button' %>
+<% end %>

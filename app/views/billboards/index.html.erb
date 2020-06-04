@@ -9,4 +9,11 @@
   <% end %>
 </ul>
 <%= link_to 'New Billboard', new_billboard_path %>
+<br />
+<%= link_to 'Billboards', billboard_path(:billboard_id) %>
 
+<br />
+<%= link_to 'Artists', billboard_artists_path(:artist_id) %>
+<br />
+
+<%= link_to 'Songs', artist_songs_path(:song_id) %>

@@ -1,10 +1,13 @@
-<h1>Artists#index</h1>
-<%# erb embedded ruby inside html %>
+<h1>Artists</h1>
+
+
 <ul>
-  <% @artists.each do |artist| %>
+  <% @artist.each do |artist| %>
     <li>
-      <%= link_to artist.name, artist %>
+      <%= link_to billboard.artist, [@billboard, artist] %>
     </li>
   <% end %>
 </ul>
-<%= link_to 'New Artist', new_artist_path %>
+
+<%= link_to 'Create Artist', new_billboard_artist_path(:billboard_id) %>
+
